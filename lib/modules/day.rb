@@ -4,10 +4,13 @@
 # @author Sachin Singh
 
 module WeekOfMonth
+
   attr_accessor :config
+
   def initialize(config = Configuration.new)
     @config = config
   end
+
   module Day
     # gives array of days in month
     # Date.new(2012,1,1).days_array
@@ -101,7 +104,7 @@ module WeekOfMonth
       self.end_of_month.downto(beginning_of_month).select{|day| day.week_end? }
     end
 
-    # gives first working/business day of the month
+    # returns first working/business day of the month
     # Date.new(2014,12,1).first_working_day_of_the_month
     # => #<Date: 2014-12-01 ((2456993j,0s,0n),+0s,2299161j)>
     def first_working_day_of_the_month
